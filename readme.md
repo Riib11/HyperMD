@@ -1,8 +1,8 @@
 # HyperMD
 
-HyperMD is a markdown variant with special heatures for the web, as well as compiling to html. Check out the guide for syntax specifics.
+HyperMD is a markdown variant with special heatures for the web, as well as compiling to html. Check out the [HyperMD Guide](https://github.com/Riib11/HyperMD/wiki/HyperMD---Guide) for syntax specifics.
 
-![HyperMD Guide](https://github.com/Riib11/HyperMD/wiki/HyperMD---Guide)
+![](hypermd.png)
 
 ## Installation
 
