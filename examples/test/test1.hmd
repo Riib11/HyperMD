@@ -5,9 +5,9 @@
 ::highlight atom-one-dark
 --- ::highlight darkula
 
-::script<
+::script{
     console.log("hello, this is a special script!")
->
+::}
 
 # This is a header1
 

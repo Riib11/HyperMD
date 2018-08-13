@@ -150,8 +150,8 @@ def make_multiline(_name, _start, _end, _tag, is_head=False):
     if is_head: blocks_head.append(X)
 
 make_multiline("codemultiline", "```"       , "```" , "pre code")
-make_multiline("style"        , "::style<"  , ">"   , "style", True)
-make_multiline("script"       , "::script<" , ">"   , "script", True)
+make_multiline("style"        , "::style{"  , "::}"   , "style", True)
+make_multiline("script"       , "::script{" , "::}"   , "script", True)
 
 #
 #

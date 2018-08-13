@@ -2,7 +2,7 @@
 
 HyperMD is a markdown variant with special heatures for the web, as well as compiling to html. Check out the guide for syntax specifics.
 
-![](hypermd.png)
+![HyperMD Guide](https://github.com/Riib11/HyperMD/wiki/HyperMD---Guide)
 
 ## Installation
 
