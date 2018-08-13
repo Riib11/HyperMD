@@ -1,0 +1,3 @@
+[console_scripts]
+hypermd = hypermd.__main__:main
+
