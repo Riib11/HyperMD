@@ -4,6 +4,11 @@ HyperMD is a markdown variant with special heatures for the web, as well as comp
 
 ![](hypermd.png)
 
+## Prerequisites
+
+- pip3
+- git
+
 ## Installation
 
     # downloads this repository
