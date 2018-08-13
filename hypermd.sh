@@ -1,1 +1,1 @@
-python3 -m notery $1 $2 $3 $4
+python3 -m hypermd $1 $2 $3 $4

@@ -2,6 +2,8 @@
 
 HyperMD is a markdown variant with special heatures for the web, as well as compiling to html. Check out the guide for syntax specifics.
 
+![](hypermd.tiff)
+
 ## Installation
 
     # downloads this repository
