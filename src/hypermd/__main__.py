@@ -56,7 +56,7 @@ def main():
             # logger.log( "log" , str(parsed) )
 
             # compile
-            compile( parsed , args.input[:-4]+".html" )
+            compile( parsed , filename[:-4]+".html" )
 
 #
 #
