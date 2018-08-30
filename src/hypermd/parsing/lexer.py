@@ -61,9 +61,9 @@ class Span(Inline):
 
 #
 #
-def make_inline(_name, _tag, _start, _end=None, is_head=False):
+def make_inline(_name, _tag, _start, _end=None, _allows_nesting=True, is_head=False):
     class X(Inline):
-        name, start, tag = _name, _start, _tag
+        name, start, tag, allows_nesting = _name, _start, _tag, _allows_nesting
         end = _end if _end else _start
     blocks_inline.append(X)
 
@@ -73,9 +73,9 @@ def make_inline(_name, _tag, _start, _end=None, is_head=False):
 #
 make_inline("italic"     , "span" , "_")
 make_inline("bold"       , "span" , "*")
-make_inline("link"       , "a"    , "@")
-make_inline("codeinline" , "code" , "`")
-make_inline("mathinline" , "span" , "$")
+make_inline("link"       , "a"    , "@", _allows_nesting=False)
+make_inline("codeinline" , "code" , "`", _allows_nesting=False)
+make_inline("mathinline" , "span" , "$", _allows_nesting=False)
 
 ####################################################
 # Line
@@ -86,10 +86,67 @@ class Line(Block):
     start = ""
     allows_nesting = True
 
+    def __init__(self, parent, line):
+        super().__init__(parent)
+        self.arg = line
+
     @classmethod
     def is_start(cls, line): return line.startswith(cls.start)
     @classmethod
     def remove_start(cls, line): return line[len(cls.start):].strip()
+
+#
+#
+class UnorderedListItem(Line):
+    name = "unorderedlistitem"
+    starts = ["-", "* "]
+    tag = "li"
+    allows_nesting = True
+
+    @classmethod
+    def is_start(cls, line):
+        return any([line.startswith(s) for s in cls.starts])
+    @classmethod
+    def remove_start(cls, line):
+        for s in cls.starts:
+            if line.startswith(s):
+                return line[len(s):]
+
+blocks_line.append(UnorderedListItem)
+
+# this didn't work out so well...
+#
+# class OrderedListItem(Line):
+#     name = "orderedlistitem"
+#     tag = "li"
+#     allows_nesting = True
+
+#     def __init__(self, parent, line):
+#         if ". " in line:
+#             line = line[:line.index(". ")]
+#         elif ") " in line:
+#             line = line[:line.index(") ")]
+#         super().__init__(parent, line)
+
+#     @classmethod
+#     def is_start(cls, line):
+#         if ". " in line:
+#             s = line[:line.index(". ")]
+#             return s.isalnum() and len(s) <= 3
+#         elif ") " in line:
+#             s = line[:line.index(") ")]
+#             return s.isalnum() and len(s) <= 3
+
+#         return False
+
+#     @classmethod
+#     def remove_start(cls, line):
+#         if ". " in line:
+#             return line[line.index(". ")+2:]
+#         elif ") " in line:
+#             return line[line.index(") ")+2:]
+
+# blocks_line.append(OrderedListItem)
 
 #
 #
@@ -102,12 +159,13 @@ def make_line(_name, _start, _tag, _allows_nesting=True, is_head=False):
 
 #
 #
-make_line("h1", "#"     , "h1")
-make_line("h2", "##"    , "h2")
-make_line("h3", "###"   , "h3")
-make_line("h4", "####"  , "h4")
 make_line("h5", "#####" , "h5")
+make_line("h4", "####"  , "h4")
+make_line("h3", "###"   , "h3")
+make_line("h2", "##"    , "h2")
+make_line("h1", "#"     , "h1")
 make_line("image", "%"  , "img", False)
+make_line("quote", "> " , "div")
 
 make_line("style"  , "::style"  , "link"   , False, True)
 make_line("script" , "::script" , "script" , False, True)
@@ -149,7 +207,8 @@ def make_multiline(_name, _start, _end, _tag, is_head=False):
     
     if is_head: blocks_head.append(X)
 
-make_multiline("codemultiline", "```"       , "```" , "pre code")
+make_multiline("codemultiline", "```"       , "```"   , "pre code")
+make_multiline("mathmultiline", "$$"        , "$$"    , "p")
 make_multiline("style"        , "::style{"  , "::}"   , "style", True)
 make_multiline("script"       , "::script{" , "::}"   , "script", True)
 
@@ -195,7 +254,7 @@ def lex(file):
             is_paragraph = True
             for bline in blocks_line:
                 if bline.is_start(line):
-                    block = bline(block)
+                    block = bline(block, line)
                     line = bline.remove_start(line)
                     is_paragraph = False
                     break
@@ -213,12 +272,13 @@ def lex(file):
                     if inline.is_end(c):
                         inline = inline.get_parent()
                         continue
-                    # check for start of new inline block
-                    for binline in blocks_inline:
-                        if binline.is_start(c):
-                            inline = binline(inline)
-                            normal = False
-                            break
+                    if inline.allows_nesting:
+                        # check for start of new inline block
+                        for binline in blocks_inline:
+                            if binline.is_start(c):
+                                inline = binline(inline)
+                                normal = False
+                                break
                     # else, just normal add
                     if normal:
                         inline.add(c)

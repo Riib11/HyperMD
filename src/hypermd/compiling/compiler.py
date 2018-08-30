@@ -61,6 +61,12 @@ def compile(parsed, target):
                     if len(content) > 1:
                         e.content = content[1]
                     s = e.tohtml()
+
+                elif x.name == "mathinline":
+                    e = Element(x.tag, False)
+                    e.set_attr("class", x.name)
+                    e.content = "\\(" + content + "\\)"
+                    s = e.tohtml()
                 
                 else:
                     e = Element(x.tag, False)
@@ -98,6 +104,7 @@ def compile(parsed, target):
 
                 else:
                     e = Element(x.tag, False)
+                    e.set_attr("class", x.name)
                     e.content = content
                     s = e.tohtml()
 
@@ -113,6 +120,12 @@ def compile(parsed, target):
                     e_middle.content = e.tohtml()
                     e_outer.content = e_middle.tohtml()
                     s = e_outer.tohtml()
+
+                elif x.name == "mathmultiline":
+                    e = Element(x.tag, False)
+                    e.set_attr("class", x.name)
+                    e.content = "$$\n" + content + "\n$$"
+                    s = e.tohtml()
 
                 else:
                     e = Element(x.tag, False)

@@ -1,19 +1,35 @@
 ::style test1.css
-::title This is a Test
-::script test1.js
---- ::highlight ir-black
 ::highlight atom-one-dark
---- ::highlight darkula
 
-::script{
-    console.log("hello, this is a special script!")
-::}
+::title This is a Test
 
-# This is a header1
+# This is an Example Document
+
+## Section 1
+
+Some math inline looks like this: $ \int_{x=0}^1 \text{d}x $.
 
 This is some normal text. _*this is bold*_. _this is italic_. `some code`. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquet quam vel tellus laoreet, non lacinia nisi iaculis. Praesent at pharetra lorem, nec tristique odio. Suspendisse potenti. Sed et purus id ante cursus feugiat. Sed eu velit convallis, sagittis elit eu, ultricies purus. Duis elementum sollicitudin ex et vestibulum. Phasellus erat dui, ornare a ipsum quis, mollis dignissim massa. Maecenas in laoreet justo. In fringilla nunc metus, a molestie odio varius quis. Ut eget lorem in ipsum pellentesque faucibus. Nulla diam tellus, malesuada vitae velit nec, pulvinar faucibus nisl. Mauris sagittis finibus risus, ut hendrerit lacus posuere et. Pellentesque placerat, metus faucibus pretium dapibus, metus nunc accumsan arcu, sed luctus nulla massa vitae risus. Sed dignissim sapien sapien, non eleifend nunc luctus quis. Aliquam erat volutpat.
 
-Aliquam a tortor facilisis orci aliquam mattis. Nullam justo ante, aliquam id odio eu, consectetur scelerisque orci. Nunc vulputate sollicitudin dui, at vulputate ex ullamcorper fermentum. Duis mollis dictum elit, id luctus tortor fringilla et. Nullam consectetur mollis dui, ultrices tristique odio dignissim vitae. Maecenas sollicitudin pulvinar dapibus. Praesent a eros id dolor lacinia sagittis. Maecenas interdum magna tellus, nec porttitor sem pulvinar eget. Aenean facilisis nisi nec euismod tempor. Integer erat lectus, rhoncus eget justo quis, porta congue erat. Praesent vulputate elementum consectetur.
+$$
+
+    \begin{cases}
+        \int_{x=0}^1 \text{d}x = 1 \\
+        \int_{y=0}^1 \text{d}y = 1 + 1
+    \end{cases}
+
+$$
+
+## Section 2
+
+Aliquam a tortor facilisis orci aliquam mattis. Nullam justo ante, aliquam id odio eu, consectetur scelerisque orci. Nunc vulputate sollicitudin dui, at vulputate ex ullamcorper fermentum. According to some, such as in these quotes:
+
+
+> This is a quote as a line.
+> This is a quote as a line.
+> This is a quote as a line.
+
+Duis mollis dictum elit, id luctus tortor fringilla et. Nullam consectetur mollis dui, ultrices tristique odio dignissim vitae. Maecenas sollicitudin pulvinar dapibus. Praesent a eros id dolor lacinia sagittis. Maecenas interdum magna tellus, nec porttitor sem pulvinar eget. Aenean facilisis nisi nec euismod tempor. Integer erat lectus, rhoncus eget justo quis, porta congue erat. Praesent vulputate elementum consectetur.
 
 % header1.png
 
@@ -29,12 +45,26 @@ Proof.
 Qed.
 ```
 
-@www.google.com@ is a site. Nulla blandit libero eu neque efficitur, in porta ante ultricies. Donec a pellentesque urna, non tempor mi. Integer a metus a nisi mattis pellentesque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Phasellus ut nisl id sem consectetur fringilla. Vestibulum tincidunt ac sapien eu dictum. Nunc ut arcu mollis, hendrerit augue ut, tempus dui. Proin eu purus nibh. Aenean sed tellus a enim faucibus sagittis. Vestibulum vitae auctor massa. Sed luctus blandit diam. Pellentesque ut tincidunt mi. Nunc quam est, molestie vitae finibus vitae, volutpat vitae ex. Donec velit purus, mollis at accumsan eu, gravida eget est. Nullam sagittis ac ante vitae rhoncus.
+@www.google.com@ is a site. Nulla blandit libero eu neque efficitur, in porta ante ultricies. Donec a pellentesque urna, non tempor mi. Integer a metus a nisi mattis pellentesque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Here's a list with 5 members:
+
+- This is an item about something
+- This is an item about something
+- This is an item about something
+- This is an item about something
+- This is an item about something
+
+## Section 3
+
+Phasellus ut nisl id sem consectetur fringilla. Vestibulum tincidunt ac sapien eu dictum. Nunc ut arcu mollis, hendrerit augue ut, tempus dui. Proin eu purus nibh. Aenean sed tellus a enim faucibus sagittis. Vestibulum vitae auctor massa. Sed luctus blandit diam. Pellentesque ut tincidunt mi. Nunc quam est, molestie vitae finibus vitae, volutpat vitae ex. Donec velit purus, mollis at accumsan eu, gravida eget est. Nullam sagittis ac ante vitae rhoncus.
 
 ```python
+
 def helloworld():
     print("hello world!")
+
 ```
+
+#### A Sidenote
 
 In ac accumsan est. Sed finibus id neque vitae porta. Aenean vestibulum, arcu consequat aliquet posuere, lacus enim aliquet elit, sed blandit mauris urna eu felis. Nunc facilisis vitae velit id congue. Sed eu molestie odio, a pulvinar turpis. Nulla tincidunt massa arcu, eget ultricies orci rutrum bibendum. Vestibulum at dui quis lorem vestibulum accumsan pharetra in justo. Curabitur sodales eleifend nunc non interdum. Praesent euismod pellentesque tellus dapibus mattis. Curabitur tristique at arcu eu condimentum.
 

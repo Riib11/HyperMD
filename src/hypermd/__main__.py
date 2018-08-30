@@ -18,7 +18,7 @@ def main():
     argparser = argparse.ArgumentParser()
     
     # arguments: positional
-    argparser.add_argument("input", nargs="?", help="input file")
+    argparser.add_argument("input", nargs="*", help="input file")
 
     # argument: optional
     argparser.add_argument("-o","--output"  , help="name for the output file")
@@ -40,18 +40,23 @@ def main():
     #
     # compile
     #
-    if not args.input.endswith(".hmd"):
-        logger.log( "error" , "please .hmd file" )
-        quit()
+    for filename in args.input:
 
-    with open(args.input, "r+") as file:
-        lexed = lex( file )
-        # logger.log( "log" , lexed )
-        
-        parsed = parse(lexed)
-        # logger.log( "log" , str(parsed) )
+        if not filename.endswith(".hmd"):
+            logger.log( "error" , "please provide only .hmd files" )
+            quit()
 
-        compile( parsed , args.input[:-4]+".html" )
+        with open(filename, "r+") as file:
+            # lex
+            lexed = lex( file )
+            # logger.log( "log" , lexed )
+            
+            # parse
+            parsed = parse(lexed)
+            # logger.log( "log" , str(parsed) )
+
+            # compile
+            compile( parsed , args.input[:-4]+".html" )
 
 #
 #
