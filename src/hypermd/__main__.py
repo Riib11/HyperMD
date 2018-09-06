@@ -41,7 +41,6 @@ def main():
     # compile
     #
     for filename in args.input:
-
         if not filename.endswith(".hmd"):
             logger.log( "error" , "please provide only .hmd files" )
             quit()
@@ -50,14 +49,13 @@ def main():
             # lex
             lexed = lex( file )
             # logger.log( "log" , lexed )
-            
             # parse
             parsed = parse(lexed)
             # logger.log( "log" , str(parsed) )
-
             # compile
             compile( parsed , filename[:-4]+".html" )
 
 #
 #
 #
+main()

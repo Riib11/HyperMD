@@ -8,6 +8,7 @@ HyperMD is a markdown variant with special heatures for the web, as well as comp
 
 - pip3
 - git
+- macOS
 
 ## Installation
 
