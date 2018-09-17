@@ -31,7 +31,7 @@ Aliquam a tortor facilisis orci aliquam mattis. Nullam justo ante, aliquam id od
 
 Duis mollis dictum elit, id luctus tortor fringilla et. Nullam consectetur mollis dui, ultrices tristique odio dignissim vitae. Maecenas sollicitudin pulvinar dapibus. Praesent a eros id dolor lacinia sagittis. Maecenas interdum magna tellus, nec porttitor sem pulvinar eget. Aenean facilisis nisi nec euismod tempor. Integer erat lectus, rhoncus eget justo quis, porta congue erat. Praesent vulputate elementum consectetur.
 
-% header1.png
+--- % header1.png
 
 ```haskell
 f :: nat -> nat

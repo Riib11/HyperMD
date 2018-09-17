@@ -164,7 +164,7 @@ make_line("h4", "####"  , "h4")
 make_line("h3", "###"   , "h3")
 make_line("h2", "##"    , "h2")
 make_line("h1", "#"     , "h1")
-make_line("image", "%"  , "img")
+make_line("image", "%"  , "img", False)
 make_line("quote", "> " , "div")
 make_line("align-right", "]]]", "div")
 
