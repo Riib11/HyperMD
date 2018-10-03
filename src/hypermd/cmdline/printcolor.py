@@ -25,6 +25,7 @@ class PrintStyle:
     BACK_cyan      = 46
     BACK_white     = 47
 
-def printc( string , font="", back="", spec="", end="\n"):
+def printc(string , font="", back="", spec="", end="\n"):
     # print( "[%s;%s;%sm" % (spec,font,back) )
-    print( f"\x1b[{spec};{font};{back}m{string}\x1b[0m" , end=end )
+    # print(f"\x1b[{spec};{font};{back}m{string}\x1b[0m" , end=end)
+    pass

@@ -22,7 +22,7 @@ class Block:
     def __iter__(self): return iter(self.content)
 
     def tostring(self): 
-        s = f"({self.name})["
+        s = "%s[" % self.name
         s += self.content_seperator.join(map(str,self.content))
         s += "]"
         return s
@@ -193,7 +193,7 @@ class Multiline(Block):
     def remove_start(cls, line): return line[len(cls.start):].strip()
 
     def tostring(self): 
-        s = f"({self.name}:{self.arg})["
+        s = "(%s:%s)" % (self.name, self.arg)
         s += self.content_seperator.join(map(str,self.content))
         s += "]"
         return s

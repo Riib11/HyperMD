@@ -1,4 +1,4 @@
-from notery.cmdline.printcolor import *
+from hypermd.cmdline.printcolor import *
 
 def repeat(n,f):
     for _ in range(n): f()
