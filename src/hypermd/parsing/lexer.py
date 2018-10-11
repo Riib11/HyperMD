@@ -70,7 +70,7 @@ def make_inline(_name, _tag, _start, _end=None, _allows_nesting=True, is_head=Fa
     if is_head: blocks_head.append(X)
 
 #
-#
+make_inline("allcaps"    , "span", "**") # TODO
 make_inline("italic"     , "span" , "_")
 make_inline("bold"       , "span" , "*")
 make_inline("link"       , "a"    , "@", _allows_nesting=False)
